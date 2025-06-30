@@ -145,8 +145,9 @@ document.addEventListener('DOMContentLoaded', function() {
             timerDisplay.textContent = formatTime(hours, minutes, seconds);
             
             // Alerta quando restam 5 minutos
-            if (remainingTime <= 5 * 60 * 1000 && remainingTime > 4 * 60 * 1000) {
-                showNotification('Atenção: Restam apenas 5 minutos!', 'error');
+            const alertTimeMinutes = 5; //Tempo restante, em  minutos, para mostrar o alerta
+            if (remainingTime <= alertTimeMinutes * 60 * 1000 && remainingTime > (alertTimeMinutes * 60 * 1000) - 1000) {
+                showNotification('Atenção: Restam apenas ' + alertTimeMinutes + ' minutos!', 'error');
                 timerDisplay.style.color = 'var(--danger-color)';
             }
             
